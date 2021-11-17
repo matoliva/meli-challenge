@@ -33,10 +33,10 @@ export const SearchBox = ({onSearchChange}: IArgs) => {
           onChange={handleChange}
           value={searchText}
         />
-        <div
+        <button
           className="search-box__form__icon pointer"
           onClick={handleSubmit}
-        ></div>
+        ></button>
       </form>
     </div>
   )
