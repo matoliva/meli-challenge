@@ -11,7 +11,7 @@ export const SearchBox = () => {
           className="input-text"
           placeholder=" Nunca dejes de buscar"
         />
-        <div className="search-box__form__icon"></div>
+        <div className="search-box__form__icon pointer"></div>
       </form>
     </div>
   )

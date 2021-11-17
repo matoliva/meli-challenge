@@ -5,6 +5,10 @@
   padding: 0 5rem 0 5rem;
   height: 3rem;
 
+  @media screen and (max-width: $mobile) {
+    padding: 0 1rem 0 1rem;
+  }
+
   &__logo {
   }
 
@@ -24,6 +28,11 @@
       background-repeat: no-repeat;
       color: white;
       text-align: center;
+
+      &:hover {
+        border: 1px solid $light-grey;
+        border-radius: 2px;
+      }
     }
   }
 }

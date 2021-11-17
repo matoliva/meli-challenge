@@ -4,4 +4,13 @@ $secondary: white;
 $dark-grey: #363636;
 $light-grey: #d8d8d8;
 
-//
+// Breakpoints
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+$mobile: 600px;
+
+/* Medium devices (landscape tablets, 768px and up) */
+$tablet: 768px;
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+$desktop: 1200px;
