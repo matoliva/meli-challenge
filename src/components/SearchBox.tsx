@@ -1,15 +1,23 @@
 import {useState} from 'react'
 import logo from '../assets/logo.png'
 
-interface IArgs {
+interface IProps {
   onSearchChange: (searchText: string) => void
 }
 
-export const SearchBox = ({onSearchChange}: IArgs) => {
+export const SearchBox = ({onSearchChange}: IProps) => {
+  //TODO: change to string
+  //TODO: split components
   const [{searchText}, setFormValue] = useState({searchText: ''})
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setFormValue({searchText: e.currentTarget.value})
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.code === 'Enter') {
+      handleSubmit(e)
+    }
   }
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -17,7 +25,7 @@ export const SearchBox = ({onSearchChange}: IArgs) => {
 
     if (!searchText) return
 
-    onSearchChange(searchText)
+    onSearchChange(searchText.trim())
     setFormValue({searchText: ''})
   }
 
@@ -25,18 +33,22 @@ export const SearchBox = ({onSearchChange}: IArgs) => {
     <div className="search-box">
       <img className="search-box__logo" src={logo} alt="logo" />
 
-      <form className="search-box__form" onSubmit={handleSubmit}>
+      <form className="search-box__form" data-testid="search-box">
         <input
+          data-testid="search-box__input"
           type="text"
           className="input-text"
           placeholder=" Nunca dejes de buscar"
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           value={searchText}
         />
         <button
+          type="submit"
+          data-testid="search-box__button"
           className="search-box__form__icon pointer"
           onClick={handleSubmit}
-        ></button>
+        />
       </form>
     </div>
   )
