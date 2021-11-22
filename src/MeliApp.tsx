@@ -1,9 +1,10 @@
 import './styles/styles.scss'
+import {HomePage} from './pages/HomePage'
 
 export const MeliApp = () => {
   return (
     <div>
-      <h1>Meli App</h1>
+      <HomePage />
     </div>
   )
 }
