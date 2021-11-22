@@ -1,17 +1,14 @@
 import {useState} from 'react'
-import logo from '../assets/logo.png'
 
 interface IProps {
   onSearchChange: (searchText: string) => void
 }
 
 export const SearchBox = ({onSearchChange}: IProps) => {
-  //TODO: change to string
-  //TODO: split components
-  const [{searchText}, setFormValue] = useState({searchText: ''})
+  const [searchText, setFormValue] = useState('')
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setFormValue({searchText: e.currentTarget.value})
+    setFormValue(e.currentTarget.value)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -26,13 +23,11 @@ export const SearchBox = ({onSearchChange}: IProps) => {
     if (!searchText) return
 
     onSearchChange(searchText.trim())
-    setFormValue({searchText: ''})
+    setFormValue('')
   }
 
   return (
     <div className="search-box">
-      <img className="search-box__logo" src={logo} alt="logo" />
-
       <form className="search-box__form" data-testid="search-box">
         <input
           data-testid="search-box__input"
