@@ -1,7 +1,7 @@
 import {SearchBox} from '../components/SearchBox'
 import {Header} from '../components/Header'
-import {ProductCard} from '../components/ProductCard'
 import {products} from '../models/products'
+import {ProductList} from '../components/ProductList'
 
 export const HomePage = () => {
   const onSearchChange = (searchText: string): void => {
@@ -13,12 +13,7 @@ export const HomePage = () => {
       <Header>
         <SearchBox onSearchChange={onSearchChange} />
       </Header>
-      <section className="section">
-        <ProductCard item={products[0].items[0]} />
-        <ProductCard item={products[0].items[0]} />
-        <ProductCard item={products[0].items[0]} />
-        <ProductCard item={products[0].items[0]} />
-      </section>
+      <ProductList items={products[0].items} />
     </main>
   )
 }
