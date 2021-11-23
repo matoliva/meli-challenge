@@ -8,3 +8,5 @@ describe('Header', () => {
     expect(header).toMatchSnapshot()
   })
 })
+
+//TODO: test th children props

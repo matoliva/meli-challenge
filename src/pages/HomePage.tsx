@@ -13,7 +13,7 @@ export const HomePage = () => {
       <Header>
         <SearchBox onSearchChange={onSearchChange} />
       </Header>
-      <section style={{marginLeft: '5rem', marginRight: '5rem'}}>
+      <section className="section">
         <ProductCard item={products[0].items[0]} />
         <ProductCard item={products[0].items[0]} />
         <ProductCard item={products[0].items[0]} />

@@ -3,18 +3,31 @@
   background-color: $secondary;
   border-radius: 2px;
   height: 200px;
+  border-bottom: 1px solid $light-grey;
 
   &__image {
     display: flex;
     align-items: center;
     img {
       width: 15rem;
-      object-fit: contain;
+    }
+
+    @media screen and (max-width: $mobile) {
+      img {
+        width: 10rem;
+      }
     }
   }
 
   &__description {
     padding-top: 2rem;
+
+    @media screen and (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      width: 8rem;
+      padding-top: 3rem;
+    }
 
     &--price {
       font-weight: bold;
@@ -29,3 +42,5 @@
     padding-top: 3rem;
   }
 }
+
+//TODO: check the styles
