@@ -1,8 +1,8 @@
-import {IItems} from '../models/products'
+import {IItem} from '../models/products'
 import noImage from '../assets/no-image.png'
 
 interface IProps {
-  item: IItems
+  item: IItem
 }
 export const ProductCard = ({item}: IProps) => {
   const {title, price, picture, condition, location} = item

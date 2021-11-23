@@ -1,38 +1,11 @@
-export interface Product {
-  author: IAuthor
-  categories: String[]
-  items: IItem[]
-}
+import {render, screen} from '@testing-library/react'
+import {ProductList} from '../../components/ProductList'
 
-interface IAuthor {
-  name: string
-  lastname: string
-}
+let items
 
-export interface IItem {
-  id: string
-  title: string
-  price: IPrice
-  picture: string
-  condition: string
-  free_shipping: boolean
-  location: string
-}
-
-interface IPrice {
-  currency: string
-  amount: number
-  decimals: number
-}
-
-export const products: Product[] = [
-  {
-    author: {
-      name: 'pepe',
-      lastname: 'grillo',
-    },
-    categories: ['zapatillas', 'running'],
-    items: [
+describe('Product List', () => {
+  beforeEach(() => {
+    items = [
       {
         id: '1',
         title: 'Zapa Nike',
@@ -89,6 +62,19 @@ export const products: Product[] = [
         free_shipping: true,
         location: 'Capital Federal',
       },
-    ],
-  },
-]
+    ]
+  })
+
+  it('renders correctly', () => {
+    const {getByTestId} = render(<ProductList items={items} />)
+    const productList = getByTestId('product-list')
+    expect(productList).toMatchSnapshot()
+  })
+
+  it('should render the list items', () => {
+    render(<ProductList items={items} />)
+
+    const cards = screen.getAllByTestId('product-card')
+    expect(cards.length).toBe(items.length)
+  })
+})

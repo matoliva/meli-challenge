@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product List renders correctly 1`] = `
+<section
+  class="section"
+  data-testid="product-list"
+>
+  <article
+    class="product-card pointer"
+    data-testid="product-card"
+  >
+    <div
+      class="product-card__image"
+    >
+      <img
+        alt="product"
+        data-testid="product-card__image"
+        src="http://http2.mlstatic.com/D_807023-MLA48100603525_112021-O.jpg"
+      />
+    </div>
+    <div
+      class="product-card__description"
+    >
+      <p
+        class="product-card__description--price"
+        data-testid="product-card__currency"
+      >
+        $
+         
+        1000
+      </p>
+      <p
+        data-testid="product-card__title"
+      >
+        Zapa Nike
+      </p>
+      <p>
+        Completo unico
+      </p>
+    </div>
+    <div
+      class="product-card__location"
+    >
+      <p
+        data-testid="product-card__location"
+      >
+        Capital Federal
+      </p>
+    </div>
+  </article>
+  <article
+    class="product-card pointer"
+    data-testid="product-card"
+  >
+    <div
+      class="product-card__image"
+    >
+      <img
+        alt="product"
+        data-testid="product-card__image"
+        src="http://http2.mlstatic.com/D_807023-MLA48100603525_112021-O.jpg"
+      />
+    </div>
+    <div
+      class="product-card__description"
+    >
+      <p
+        class="product-card__description--price"
+        data-testid="product-card__currency"
+      >
+        $
+         
+        1000
+      </p>
+      <p
+        data-testid="product-card__title"
+      >
+        Zapa Nike
+      </p>
+      <p>
+        Completo unico
+      </p>
+    </div>
+    <div
+      class="product-card__location"
+    >
+      <p
+        data-testid="product-card__location"
+      >
+        Capital Federal
+      </p>
+    </div>
+  </article>
+  <article
+    class="product-card pointer"
+    data-testid="product-card"
+  >
+    <div
+      class="product-card__image"
+    >
+      <img
+        alt="product"
+        data-testid="product-card__image"
+        src="http://http2.mlstatic.com/D_807023-MLA48100603525_112021-O.jpg"
+      />
+    </div>
+    <div
+      class="product-card__description"
+    >
+      <p
+        class="product-card__description--price"
+        data-testid="product-card__currency"
+      >
+        $
+         
+        1000
+      </p>
+      <p
+        data-testid="product-card__title"
+      >
+        Zapa Nike
+      </p>
+      <p>
+        Completo unico
+      </p>
+    </div>
+    <div
+      class="product-card__location"
+    >
+      <p
+        data-testid="product-card__location"
+      >
+        Capital Federal
+      </p>
+    </div>
+  </article>
+  <article
+    class="product-card pointer"
+    data-testid="product-card"
+  >
+    <div
+      class="product-card__image"
+    >
+      <img
+        alt="product"
+        data-testid="product-card__image"
+        src="http://http2.mlstatic.com/D_807023-MLA48100603525_112021-O.jpg"
+      />
+    </div>
+    <div
+      class="product-card__description"
+    >
+      <p
+        class="product-card__description--price"
+        data-testid="product-card__currency"
+      >
+        $
+         
+        1000
+      </p>
+      <p
+        data-testid="product-card__title"
+      >
+        Zapa Nike
+      </p>
+      <p>
+        Completo unico
+      </p>
+    </div>
+    <div
+      class="product-card__location"
+    >
+      <p
+        data-testid="product-card__location"
+      >
+        Capital Federal
+      </p>
+    </div>
+  </article>
+</section>
+`;
