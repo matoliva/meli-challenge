@@ -1,0 +1,8 @@
+.section {
+  margin-top: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  @media screen and (max-width: $mobile) {
+    margin: 0;
+  }
+}
