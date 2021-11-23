@@ -1,5 +1,6 @@
 import {render} from '@testing-library/react'
 import {Header} from '../../components/Header'
+import {SearchBox} from '../../components/SearchBox'
 
 describe('Header', () => {
   it('renders correctly', () => {
@@ -7,6 +8,15 @@ describe('Header', () => {
     const header = getByTestId('header')
     expect(header).toMatchSnapshot()
   })
-})
 
-//TODO: test th children props
+  it('should render the SearchBox component passed by props', () => {
+    const {getByTestId} = render(
+      <Header>
+        <SearchBox />
+      </Header>,
+    )
+    const searchBox = getByTestId('search-box')
+
+    expect(searchBox).toBeDefined()
+  })
+})
