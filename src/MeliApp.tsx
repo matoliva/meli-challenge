@@ -1,13 +1,12 @@
-import './styles/styles.scss'
-import {HomePage} from './pages/HomePage'
-import {ProductPage} from './pages/ProductPage'
 import {Layout} from './components/Layout'
+import {Router} from './routes/Router'
+
+import './styles/styles.scss'
 
 export const MeliApp = () => {
   return (
     <Layout>
-      {/* <HomePage /> */}
-      <ProductPage id="1" />
+      <Router />
     </Layout>
   )
 }
