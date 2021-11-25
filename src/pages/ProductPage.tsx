@@ -1,10 +1,6 @@
 import productImage from '../assets/iphone.webp'
 
-interface IProps {
-  id: string
-}
-
-export const ProductPage = ({id}: IProps) => {
+export const ProductPage = () => {
   return (
     <article className="product-page">
       <div className="product-page__product">
