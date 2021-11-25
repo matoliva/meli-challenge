@@ -12,17 +12,10 @@ interface IItemMappedExt extends IItemMapped {
 export const ProductPage = () => {
   const {id: productId = ''} = useParams()
 
-  const [apiData, setApiData] = useState<any>()
-
-  // const {apiData, isLoading, serverError} = useFetch(
-  //   `https://api.mercadolibre.com/items/${productId}`,
-  // )
+  const {apiData, isLoading, serverError} = useFetch(
+    `https://api.mercadolibre.com/items/${productId}`,
+  )
   //TODO: why the useFetch hook didn't work?
-  useEffect(() => {
-    fetch(`https://api.mercadolibre.com/items/${productId}`)
-      .then(resp => resp.json())
-      .then(data => setApiData(data))
-  }, [productId])
 
   const [item, setItem] = useState<IItemMappedExt>({
     id: '',
@@ -39,7 +32,6 @@ export const ProductPage = () => {
 
   useEffect(() => {
     const mapDatafromServer = () => {
-      debugger
       let dataMaped: any
       if (apiData) {
         dataMaped = {
@@ -56,7 +48,6 @@ export const ProductPage = () => {
         }
         setItem(dataMaped)
       }
-      debugger
     }
     mapDatafromServer()
   }, [apiData])

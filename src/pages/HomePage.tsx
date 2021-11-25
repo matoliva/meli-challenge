@@ -33,7 +33,7 @@ export const HomePage = () => {
     const mapDatafromServer = () => {
       let dataMaped
       if (apiData) {
-        dataMaped = apiData.map((item: any) => {
+        dataMaped = apiData.results.map((item: any) => {
           return {
             id: item.id,
             title: item.title,

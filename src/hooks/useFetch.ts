@@ -19,7 +19,7 @@ export const useFetch = (url: string): IFetch => {
         const resp = await fetch(url)
         const data = await resp.json()
 
-        setApiData(data.results)
+        setApiData(data)
         setIsLoading(false)
       } catch (error: any) {
         setServerError(error)
