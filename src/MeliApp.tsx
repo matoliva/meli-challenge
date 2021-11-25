@@ -1,12 +1,13 @@
 import './styles/styles.scss'
 import {HomePage} from './pages/HomePage'
 import {ProductPage} from './pages/ProductPage'
+import {Layout} from './components/Layout'
 
 export const MeliApp = () => {
   return (
-    <div>
+    <Layout>
       {/* <HomePage /> */}
       <ProductPage id="1" />
-    </div>
+    </Layout>
   )
 }

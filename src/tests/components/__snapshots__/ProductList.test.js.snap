@@ -2,7 +2,6 @@
 
 exports[`Product List renders correctly 1`] = `
 <section
-  class="section"
   data-testid="product-list"
 >
   <article

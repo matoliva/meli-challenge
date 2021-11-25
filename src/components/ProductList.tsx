@@ -7,7 +7,7 @@ interface IProp {
 
 export const ProductList = ({items}: IProp) => {
   return (
-    <section className="section" data-testid="product-list">
+    <section data-testid="product-list">
       {items.map(item => (
         <ProductCard key={item.id} item={item} />
       ))}
