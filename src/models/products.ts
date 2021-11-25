@@ -92,3 +92,7 @@ export const products: Product[] = [
     ],
   },
 ]
+
+export const productById = (id: string) => {
+  return products[0].items.filter(item => item.id === id)[0]
+}
