@@ -1,8 +1,8 @@
-import {IItem} from '../models/products'
 import {ProductCard} from './ProductCard'
+import {IItemMapped} from '../pages/HomePage'
 
 interface IProp {
-  items: IItem[]
+  items: IItemMapped[]
 }
 
 export const ProductList = ({items}: IProp) => {

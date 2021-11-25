@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     img {
-      width: 15rem;
+      width: 10rem;
     }
 
     @media screen and (max-width: $mobile) {
@@ -38,8 +38,15 @@
   &__location {
     display: flex;
     flex: 3;
-    justify-content: center;
     padding-top: 3rem;
+    justify-content: end;
+    padding-right: 6rem;
+
+    @media screen and (max-width: $mobile) {
+      display: inline;
+      padding-left: 1rem;
+      padding-right: 0;
+    }
   }
 }
 

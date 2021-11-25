@@ -1,6 +1,12 @@
 import {useEffect, useState} from 'react'
 
-export const useFetch = (url: string) => {
+interface IFetch {
+  apiData: any
+  isLoading: boolean
+  serverError: any
+}
+
+export const useFetch = (url: string): IFetch => {
   const [apiData, setApiData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [serverError, setServerError] = useState(null)
