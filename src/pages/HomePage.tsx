@@ -1,6 +1,7 @@
 import {ProductList} from '../components/ProductList'
 import {useFetch} from '../hooks/useFetch'
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
+import {SearchContext} from '../contexts/SearchContext'
 
 export interface IItemMapped {
   id: string
@@ -13,8 +14,11 @@ export interface IItemMapped {
 }
 
 export const HomePage = () => {
+  //TODO: analice the breadcrumb component
+  const {search} = useContext(SearchContext)
+
   const {apiData, isLoading, serverError} = useFetch(
-    'https://api.mercadolibre.com/sites/MLA/search?q=iphone&limit=4#json',
+    `https://api.mercadolibre.com/sites/MLA/search?q=${search}&limit=4#json`,
   )
 
   const [dataMapped, setDataMapped] = useState<IItemMapped[]>([

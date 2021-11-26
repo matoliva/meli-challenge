@@ -1,21 +1,23 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router'
-import {useFetch} from '../hooks/useFetch'
+import {Spinner} from '../components/Spinner'
+import {useFetchAll} from '../hooks/useFetchAll'
 import {IItemMapped} from './HomePage'
 
 interface IItemMappedExt extends IItemMapped {
   sold_quantity: number
   mobilePicture: string
   desktopPicture: string
+  plain_text: string
 }
 
 export const ProductPage = () => {
   const {id: productId = ''} = useParams()
 
-  const {apiData, isLoading, serverError} = useFetch(
+  const {apiData, isLoading, serverError} = useFetchAll(
     `https://api.mercadolibre.com/items/${productId}`,
+    `https://api.mercadolibre.com/items/${productId}/description`,
   )
-  //TODO: why the useFetch hook didn't work?
 
   const [item, setItem] = useState<IItemMappedExt>({
     id: '',
@@ -28,6 +30,7 @@ export const ProductPage = () => {
     picture: '',
     mobilePicture: '',
     desktopPicture: '',
+    plain_text: '',
   })
 
   useEffect(() => {
@@ -45,6 +48,7 @@ export const ProductPage = () => {
           sold_quantity: apiData.sold_quantity,
           mobilePicture: apiData.pictures[0].url,
           desktopPicture: apiData.pictures[2].url,
+          plain_text: apiData.plain_text,
         }
         setItem(dataMaped)
       }
@@ -61,11 +65,12 @@ export const ProductPage = () => {
     sold_quantity,
     mobilePicture,
     desktopPicture,
+    plain_text,
   } = item
 
   const currencyMap = currency === 'ARS' ? '$' : 'uSd'
   //TODO: I have to code a hook that check if it's a desktop or mobile screen
-  return (
+  return !isLoading ? (
     <article className="product-page">
       <div className="product-page__product">
         <img src={desktopPicture} alt={title} />
@@ -80,13 +85,10 @@ export const ProductPage = () => {
       </div>
       <div className="product-page__description">
         <h2>Descripción del producto</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-          blanditiis, dolor eveniet modi nisi commodi nesciunt? Architecto
-          reprehenderit quibusdam iusto vel in ratione voluptate placeat! Optio
-          ullam saepe distinctio provident!
-        </p>
+        <p>{plain_text}</p>
       </div>
     </article>
+  ) : (
+    <Spinner />
   )
 }

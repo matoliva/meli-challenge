@@ -1,11 +1,20 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
+import {SearchContext} from '../contexts/SearchContext'
 
 interface IProps {
   onSearchChange: (searchText: string) => void
 }
 
+//TODO: refactor because I use a context instead of drill props
+
 export const SearchBox = ({onSearchChange}: IProps) => {
   const [searchText, setFormValue] = useState('')
+
+  const {setSearch} = useContext(SearchContext)
+
+  //const navigate = useNavigate()
+  //TODO:Necesito estar en el contexto del router
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setFormValue(e.currentTarget.value)
@@ -23,6 +32,11 @@ export const SearchBox = ({onSearchChange}: IProps) => {
     if (!searchText) return
 
     onSearchChange(searchText.trim())
+
+    if (setSearch) {
+      setSearch(searchText.trim())
+      //navigate('/', {replace: true})
+    }
     setFormValue('')
   }
 
