@@ -18,8 +18,8 @@ export const useFetchAll = (firstUrl: string, secondUrl: string): IFetch => {
       try {
         const res = await Promise.all([fetch(firstUrl), fetch(secondUrl)])
         const data = await Promise.all(res.map(r => r.json()))
-        console.log(data)
-        data[0].plain_text = data[1].plain_text
+        const dataSecondUrl = {...data[1]}
+        data[0].plain_text = dataSecondUrl.plain_text
         setApiData(data[0])
         setIsLoading(false)
       } catch {}

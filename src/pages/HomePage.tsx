@@ -2,6 +2,7 @@ import {ProductList} from '../components/ProductList'
 import {useFetch} from '../hooks/useFetch'
 import {useContext, useEffect, useState} from 'react'
 import {SearchContext} from '../contexts/SearchContext'
+import {Spinner} from '../components/Spinner'
 
 export interface IItemMapped {
   id: string
@@ -55,5 +56,5 @@ export const HomePage = () => {
     mapDatafromServer()
   }, [apiData])
 
-  return <ProductList items={dataMapped} />
+  return !isLoading ? <ProductList items={dataMapped} /> : <Spinner />
 }
