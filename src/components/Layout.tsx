@@ -5,13 +5,10 @@ interface IProps {
   children: React.ReactNode
 }
 export const Layout = ({children}: IProps) => {
-  const onSearchChange = (searchText: string): void => {
-    console.log(searchText)
-  }
   return (
     <div className="main">
       <Header>
-        <SearchBox onSearchChange={onSearchChange} />
+        <SearchBox />
       </Header>
       <main className="section">{children}</main>
     </div>

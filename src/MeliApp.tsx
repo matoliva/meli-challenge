@@ -11,9 +11,9 @@ export const MeliApp = () => {
 
   return (
     <SearchContext.Provider value={{search, setSearch}}>
-      <Layout>
-        <Router />
-      </Layout>
+      {/* <Layout> */}
+      <Router />
+      {/* </Layout> */}
     </SearchContext.Provider>
   )
 }

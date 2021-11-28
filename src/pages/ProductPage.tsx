@@ -14,6 +14,7 @@ interface IItemMappedExt extends IItemMapped {
 export const ProductPage = () => {
   const {id: productId = ''} = useParams()
 
+  //TODO: extract this urls to a separate file
   const {apiData, isLoading, serverError} = useFetchAll(
     `https://api.mercadolibre.com/items/${productId}`,
     `https://api.mercadolibre.com/items/${productId}/description`,
