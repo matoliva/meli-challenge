@@ -35,7 +35,10 @@ export const SearchBox = ({onSearchChange}: IProps) => {
 
     if (setSearch) {
       setSearch(searchText.trim())
+      //document.location.href = '/'
       //navigate('/', {replace: true})
+      //window.location.hash = '/'
+      //window.location.href = '/'
     }
     setFormValue('')
   }

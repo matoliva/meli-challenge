@@ -35,7 +35,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     const mapDatafromServer = () => {
-      let dataMaped: any
+      let dataMaped
       if (apiData) {
         dataMaped = {
           id: apiData.id,
