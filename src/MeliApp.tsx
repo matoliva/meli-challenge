@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {Layout} from './components/Layout'
 import {SearchContext} from './contexts/SearchContext'
 
 import {Router} from './routes/Router'
@@ -11,9 +10,7 @@ export const MeliApp = () => {
 
   return (
     <SearchContext.Provider value={{search, setSearch}}>
-      {/* <Layout> */}
       <Router />
-      {/* </Layout> */}
     </SearchContext.Provider>
   )
 }

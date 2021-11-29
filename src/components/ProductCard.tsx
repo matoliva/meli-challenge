@@ -5,13 +5,13 @@ import {IItemMapped} from '../pages/HomePage'
 interface IProps {
   item: IItemMapped
 }
+//TODO: pass props
 export const ProductCard = ({item}: IProps) => {
   const {id, title, price, currency, picture, condition, address} = item
 
   const currencyMap = currency === 'ARS' ? '$' : 'uSd'
   const image = picture ? picture : noImage
 
-  //TODO: check the way that I'm using the Link component
   return (
     <Link to={`/item/${id}`} style={{textDecoration: 'none', color: 'black'}}>
       <article className="product-card pointer" data-testid="product-card">

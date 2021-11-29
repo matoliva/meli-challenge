@@ -2,13 +2,17 @@
 
 exports[`Header renders correctly 1`] = `
 <header
-  class="header"
+  class="header pointer"
   data-testid="header"
 >
-  <img
-    alt="logo"
-    class="header__logo"
-    src="logo.png"
-  />
+  <a
+    href="/"
+  >
+    <img
+      alt="logo"
+      class="header__logo"
+      src="logo.png"
+    />
+  </a>
 </header>
 `;
