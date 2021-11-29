@@ -32,7 +32,7 @@ describe('SearchBox', () => {
 
   it('sould call setSearch when the user hit the button', () => {
     const setSearchMock = jest.fn()
-    const useStateMock = useState => [useState, setSearchMock]
+    const useStateMock = useContext => [useContext, setSearchMock]
 
     jest.spyOn(React, 'useState').mockImplementation(useStateMock)
 
@@ -53,7 +53,7 @@ describe('SearchBox', () => {
     expect(searchBoxInput.value).toBe('')
   })
 
-  it('sould call onSearchChange when the user press enter key', () => {
+  it('sould call setSearchMock when the user press enter key', () => {
     const setSearchMock = jest.fn()
     const useStateMock = useState => [useState, setSearchMock]
 
@@ -79,7 +79,7 @@ describe('SearchBox', () => {
     expect(searchBoxInput.value).toBe('')
   })
 
-  it('should not call onSearchChange when the textValue is empty', () => {
+  it('should not call setSearchMock when the textValue is empty', () => {
     const setSearchMock = jest.fn()
     const useStateMock = useState => [useState, setSearchMock]
 
@@ -102,5 +102,26 @@ describe('SearchBox', () => {
       charCode: 13,
     })
     expect(setSearchMock).not.toHaveBeenCalled()
+  })
+
+  it('should redirect to home page when the user submit the data', () => {
+    const setSearchMock = jest.fn()
+    const useStateMock = useState => [useState, setSearchMock]
+
+    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
+
+    const {getByTestId} = render(
+      <BrowserRouter>
+        <SearchBox />
+      </BrowserRouter>,
+    )
+    const textValue = 'new value'
+    const searchBoxButton = getByTestId('search-box__button')
+    const searchBoxInput = getByTestId('search-box__input')
+
+    fireEvent.change(searchBoxInput, {target: {value: textValue}})
+    fireEvent.click(searchBoxButton)
+
+    expect(window.location.pathname).toBe('/')
   })
 })

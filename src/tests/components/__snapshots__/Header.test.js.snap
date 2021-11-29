@@ -11,6 +11,7 @@ exports[`Header renders correctly 1`] = `
     <img
       alt="logo"
       class="header__logo"
+      data-testid="logo"
       src="logo.png"
     />
   </a>

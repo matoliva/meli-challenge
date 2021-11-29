@@ -26,4 +26,17 @@ describe('Header', () => {
 
     expect(searchBox).toBeDefined()
   })
+
+  it('should redirect to home page when the user hit the logo', () => {
+    const {getByTestId} = render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>,
+    )
+    const logo = getByTestId('logo')
+
+    logo.click()
+
+    expect(window.location.pathname).toBe('/')
+  })
 })
