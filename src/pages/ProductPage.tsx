@@ -5,6 +5,7 @@ import {useFetchAll} from '../hooks/useFetchAll'
 import {useWindowSize} from '../hooks/useWindowSize'
 import {IItemMapped} from './HomePage'
 import {Size} from '../models/products'
+import noImage from '../assets/no-image.png'
 
 interface IItemMappedExt extends IItemMapped {
   sold_quantity: number
@@ -50,8 +51,8 @@ export const ProductPage = () => {
           picture: apiData.thumbnail,
           condition: apiData.condition,
           sold_quantity: apiData.sold_quantity,
-          mobilePicture: apiData.pictures[0].url,
-          desktopPicture: apiData.pictures[2].url,
+          mobilePicture: apiData.pictures[0]?.url,
+          desktopPicture: apiData.pictures[2]?.url,
           plain_text: apiData.plain_text,
         }
         setItem(dataMaped)
@@ -78,7 +79,7 @@ export const ProductPage = () => {
   return (
     <article className="product-page" data-testid="product-page">
       <div className="product-page__product">
-        <img src={image} alt={title} />
+        <img src={image ? image : noImage} alt={title} />
         <div className="product-page__product--buy">
           <p>{`${condition} - ${sold_quantity} vendidos`}</p>
           <h3>{title}</h3>
