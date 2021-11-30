@@ -56,5 +56,9 @@ export const HomePage = () => {
     mapDatafromServer()
   }, [apiData])
 
-  return !isLoading ? <ProductList items={dataMapped} /> : <Spinner />
+  return (
+    <div data-testid="home-page">
+      {!isLoading ? <ProductList items={dataMapped} /> : <Spinner />}
+    </div>
+  )
 }

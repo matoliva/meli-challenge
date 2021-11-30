@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router'
-import {Spinner} from '../components/Spinner'
 import {useFetchAll} from '../hooks/useFetchAll'
 import {IItemMapped} from './HomePage'
 
@@ -71,8 +70,8 @@ export const ProductPage = () => {
 
   const currencyMap = currency === 'ARS' ? '$' : 'uSd'
   //TODO: I have to code a hook that check if it's a desktop or mobile screen
-  return !isLoading ? (
-    <article className="product-page">
+  return (
+    <article className="product-page" data-testid="product-page">
       <div className="product-page__product">
         <img src={desktopPicture} alt={title} />
         <div className="product-page__product--buy">
@@ -89,7 +88,5 @@ export const ProductPage = () => {
         <p>{plain_text}</p>
       </div>
     </article>
-  ) : (
-    <Spinner />
   )
 }

@@ -9,7 +9,12 @@ export const Header = ({children}: IProps) => {
   return (
     <header className="header pointer" data-testid="header">
       <Link to="/">
-        <img className="header__logo" src={logo} alt="logo" />
+        <img
+          className="header__logo"
+          src={logo}
+          alt="logo"
+          data-testid="logo"
+        />
       </Link>
       {children}
     </header>
