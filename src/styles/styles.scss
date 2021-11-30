@@ -1,3 +1,12 @@
-html, body {
-    background-color: red;
-}
+@import './base/settings';
+@import './base/base';
+
+@import './components/main';
+@import './components/header';
+@import './components/searchBox';
+@import './components/input-text';
+@import './components/productCard';
+@import './components/section';
+@import './components/product-page';
+@import './components/button';
+@import './components/spinner';

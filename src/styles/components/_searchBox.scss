@@ -1,0 +1,23 @@
+.search-box {
+  width: 100%;
+  &__form {
+    display: flex;
+    width: 100%;
+    align-self: center;
+
+    &__icon {
+      border: none;
+      height: 2rem;
+      width: 2rem;
+      padding: 10px;
+      background: $light-grey;
+      background-image: url('../../assets/lens.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      outline-color: $light-grey;
+    }
+  }
+}

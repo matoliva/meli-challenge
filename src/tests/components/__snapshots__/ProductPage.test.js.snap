@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Page renders correctly 1`] = `
+<article
+  class="product-page"
+  data-testid="product-page"
+>
+  <div
+    class="product-page__product"
+  >
+    <img
+      alt=""
+      src="no-image.png"
+    />
+    <div
+      class="product-page__product--buy"
+    >
+      <p>
+         - 0 vendidos
+      </p>
+      <h3 />
+      <p
+        class="product-page__product--price"
+      >
+        uSd
+         
+        0
+      </p>
+      <button
+        class="btn pointer"
+      >
+        Comprar
+      </button>
+    </div>
+  </div>
+  <div
+    class="product-page__description"
+  >
+    <h2>
+      Descripción del producto
+    </h2>
+    <p />
+  </div>
+</article>
+`;

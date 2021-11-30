@@ -1,0 +1,66 @@
+.product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $secondary;
+  padding: 6rem 0 8rem 0;
+
+  @media screen and (max-width: $mobile) {
+    padding: 2rem 1rem 0 1rem;
+    margin: 0;
+    height: calc(100vh - 3rem); //3rem belong to Header
+  }
+
+  &__product {
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 4rem;
+    width: 50%;
+
+    img {
+      width: 20rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+      gap: 1rem;
+
+      img {
+        width: 10rem;
+      }
+    }
+
+    &--buy {
+      width: 200px;
+      padding-top: 2rem;
+
+      @media screen and (max-width: $mobile) {
+        padding-top: 1rem;
+      }
+    }
+
+    &--price {
+      font-weight: bold;
+      font-size: xx-large;
+      padding: 2rem 0;
+
+      @media screen and (max-width: $mobile) {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+
+  &__description {
+    width: 50%;
+    line-height: 1.5rem;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}

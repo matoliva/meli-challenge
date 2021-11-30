@@ -1,0 +1,53 @@
+.product-card {
+  display: flex;
+  background-color: $secondary;
+  border-radius: 2px;
+  height: 200px;
+  border-bottom: 1px solid $light-grey;
+
+  &__image {
+    display: flex;
+    align-items: center;
+    img {
+      width: 10rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+      img {
+        width: 10rem;
+      }
+    }
+  }
+
+  &__description {
+    padding-top: 2rem;
+
+    @media screen and (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      width: 8rem;
+      padding-top: 3rem;
+    }
+
+    &--price {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__location {
+    display: flex;
+    flex: 3;
+    padding-top: 3rem;
+    justify-content: end;
+    padding-right: 6rem;
+
+    @media screen and (max-width: $mobile) {
+      display: inline;
+      padding-left: 1rem;
+      padding-right: 0;
+    }
+  }
+}
+
+//TODO: check the styles
