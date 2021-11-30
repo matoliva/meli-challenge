@@ -15,7 +15,7 @@ describe('Home Page', () => {
     expect(homePage).toMatchSnapshot()
   })
 
-  it('should called an async api when the component is rendering', async () => {
+  it.skip('should called an async api when the component is rendering', async () => {
     const fakeResponse = {
       id: 1,
       title: 'test title',
