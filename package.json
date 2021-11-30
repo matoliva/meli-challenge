@@ -1,6 +1,5 @@
 {
-  "name": "meli-challenge",
-  "homepage": "https://matoliva.github.io/meli-challenge",
+  "name": "ml-challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
