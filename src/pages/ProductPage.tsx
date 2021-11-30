@@ -19,7 +19,7 @@ export const ProductPage = () => {
 
   const size: Size = useWindowSize()
 
-  const {apiData, isLoading, serverError} = useFetchAll(
+  const {apiData} = useFetchAll(
     `${baseurl}/items/${productId}`,
     `${baseurl}/items/${productId}/description`,
   )

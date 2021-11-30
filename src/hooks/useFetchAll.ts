@@ -9,7 +9,7 @@ interface IFetch {
 export const useFetchAll = (firstUrl: string, secondUrl: string): IFetch => {
   const [apiData, setApiData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [serverError, setServerError] = useState(null)
+  const [serverError] = useState(null)
 
   useEffect(() => {
     setIsLoading(true)
