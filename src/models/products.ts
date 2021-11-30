@@ -24,3 +24,8 @@ interface IPrice {
   amount: number
   decimals: number
 }
+
+export interface Size {
+  width: number | undefined
+  height: number | undefined
+}

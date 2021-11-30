@@ -1,7 +1,10 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router'
+import {baseurl} from '../config/urls'
 import {useFetchAll} from '../hooks/useFetchAll'
+import {useWindowSize} from '../hooks/useWindowSize'
 import {IItemMapped} from './HomePage'
+import {Size} from '../models/products'
 
 interface IItemMappedExt extends IItemMapped {
   sold_quantity: number
@@ -13,10 +16,11 @@ interface IItemMappedExt extends IItemMapped {
 export const ProductPage = () => {
   const {id: productId = ''} = useParams()
 
-  //TODO: extract this urls to a separate file
+  const size: Size = useWindowSize()
+
   const {apiData, isLoading, serverError} = useFetchAll(
-    `https://api.mercadolibre.com/items/${productId}`,
-    `https://api.mercadolibre.com/items/${productId}/description`,
+    `${baseurl}/items/${productId}`,
+    `${baseurl}/items/${productId}/description`,
   )
 
   const [item, setItem] = useState<IItemMappedExt>({
@@ -60,7 +64,6 @@ export const ProductPage = () => {
     title,
     price,
     currency,
-    picture,
     condition,
     sold_quantity,
     mobilePicture,
@@ -69,11 +72,13 @@ export const ProductPage = () => {
   } = item
 
   const currencyMap = currency === 'ARS' ? '$' : 'uSd'
-  //TODO: I have to code a hook that check if it's a desktop or mobile screen
+  const isMobile = size && size.width && size.width < 768 ? true : false
+  const image = isMobile ? mobilePicture : desktopPicture
+
   return (
     <article className="product-page" data-testid="product-page">
       <div className="product-page__product">
-        <img src={desktopPicture} alt={title} />
+        <img src={image} alt={title} />
         <div className="product-page__product--buy">
           <p>{`${condition} - ${sold_quantity} vendidos`}</p>
           <h3>{title}</h3>

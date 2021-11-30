@@ -5,7 +5,7 @@ import {IItemMapped} from '../pages/HomePage'
 interface IProps {
   item: IItemMapped
 }
-//TODO: pass props
+
 export const ProductCard = ({item}: IProps) => {
   const {id, title, price, currency, picture, condition, address} = item
 

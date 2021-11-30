@@ -3,6 +3,7 @@ import {useFetch} from '../hooks/useFetch'
 import {useContext, useEffect, useState} from 'react'
 import {SearchContext} from '../contexts/SearchContext'
 import {Spinner} from '../components/Spinner'
+import {baseurl} from '../config/urls'
 
 export interface IItemMapped {
   id: string
@@ -19,7 +20,7 @@ export const HomePage = () => {
   const {search} = useContext(SearchContext)
 
   const {apiData, isLoading, serverError} = useFetch(
-    `https://api.mercadolibre.com/sites/MLA/search?q=${search}&limit=4#json`,
+    `${baseurl}/sites/MLA/search?q=${search}&limit=4#json`,
   )
 
   const [dataMapped, setDataMapped] = useState<IItemMapped[]>([
