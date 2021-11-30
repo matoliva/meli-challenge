@@ -14,7 +14,11 @@ export const ProductCard = ({item}: IProps) => {
 
   return (
     <Link to={`/item/${id}`} style={{textDecoration: 'none', color: 'black'}}>
-      <article className="product-card pointer" data-testid="product-card">
+      <article
+        id={id}
+        className="product-card pointer"
+        data-testid="product-card"
+      >
         <div className="product-card__image">
           <img src={image} alt="product" data-testid="product-card__image" />
         </div>
