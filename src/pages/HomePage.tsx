@@ -19,7 +19,7 @@ export const HomePage = () => {
   //TODO: analice the breadcrumb component
   const {search} = useContext(SearchContext)
 
-  const {apiData, isLoading, serverError} = useFetch(
+  const {apiData, isLoading} = useFetch(
     `${baseurl}/sites/MLA/search?q=${search}&limit=4#json`,
   )
 
