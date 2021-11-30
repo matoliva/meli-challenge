@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page renders correctly 1`] = `
+<div
+  data-testid="home-page"
+>
+  <div
+    class="sk-chase"
+  >
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+  </div>
+</div>
+`;

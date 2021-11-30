@@ -2,9 +2,21 @@ import React from 'react'
 import {render, fireEvent} from '@testing-library/react'
 import {BrowserRouter} from 'react-router-dom'
 import {SearchBox} from '../../components/SearchBox'
+import {SearchContext} from '../../contexts/SearchContext'
 
 describe('SearchBox', () => {
-  beforeEach(() => {})
+  let mockContext
+
+  beforeEach(() => {
+    mockContext = {
+      search: '',
+      setSearch: jest.fn(),
+    }
+  })
+
+  afterEach(() => {
+    //React.useContext = realUseContext
+  })
 
   it('renders correctly', () => {
     const {getByTestId} = render(
@@ -31,15 +43,12 @@ describe('SearchBox', () => {
   })
 
   it('sould call setSearch when the user hit the button', () => {
-    const setSearchMock = jest.fn()
-    const useStateMock = useContext => [useContext, setSearchMock]
-
-    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
-
     const {getByTestId} = render(
-      <BrowserRouter>
-        <SearchBox />
-      </BrowserRouter>,
+      <SearchContext.Provider value={mockContext}>
+        <BrowserRouter>
+          <SearchBox />
+        </BrowserRouter>
+      </SearchContext.Provider>,
     )
     const textValue = 'new value'
     const searchBoxButton = getByTestId('search-box__button')
@@ -48,21 +57,18 @@ describe('SearchBox', () => {
     fireEvent.change(searchBoxInput, {target: {value: textValue}})
     fireEvent.click(searchBoxButton)
 
-    expect(setSearchMock).toHaveBeenCalledTimes(1)
-    expect(setSearchMock).toHaveBeenCalledWith(textValue)
+    expect(mockContext.setSearch).toHaveBeenCalledTimes(1)
+    expect(mockContext.setSearch).toHaveBeenCalledWith(textValue)
     expect(searchBoxInput.value).toBe('')
   })
 
-  it('sould call setSearchMock when the user press enter key', () => {
-    const setSearchMock = jest.fn()
-    const useStateMock = useState => [useState, setSearchMock]
-
-    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
-
+  it('sould call setSearch when the user press enter key', () => {
     const {getByTestId} = render(
-      <BrowserRouter>
-        <SearchBox />
-      </BrowserRouter>,
+      <SearchContext.Provider value={mockContext}>
+        <BrowserRouter>
+          <SearchBox />
+        </BrowserRouter>
+      </SearchContext.Provider>,
     )
     const textValue = 'new value'
     const searchBoxInput = getByTestId('search-box__input')
@@ -74,42 +80,34 @@ describe('SearchBox', () => {
       charCode: 13,
     })
 
-    expect(setSearchMock).toHaveBeenCalledTimes(1)
-    expect(setSearchMock).toHaveBeenCalledWith(textValue)
+    expect(mockContext.setSearch).toHaveBeenCalledTimes(1)
+    expect(mockContext.setSearch).toHaveBeenCalledWith(textValue)
     expect(searchBoxInput.value).toBe('')
   })
 
   it('should not call setSearchMock when the textValue is empty', () => {
-    const setSearchMock = jest.fn()
-    const useStateMock = useState => [useState, setSearchMock]
-
-    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
-
     const {getByTestId} = render(
-      <BrowserRouter>
-        <SearchBox />
-      </BrowserRouter>,
+      <SearchContext.Provider value={mockContext}>
+        <BrowserRouter>
+          <SearchBox />
+        </BrowserRouter>
+      </SearchContext.Provider>,
     )
     const searchBoxButton = getByTestId('search-box__button')
     const searchBoxInput = getByTestId('search-box__input')
 
     fireEvent.click(searchBoxButton)
-    expect(setSearchMock).not.toHaveBeenCalled()
+    expect(mockContext.setSearch).not.toHaveBeenCalled()
 
     fireEvent.keyDown(searchBoxInput, {
       key: 'Enter',
       code: 'Enter',
       charCode: 13,
     })
-    expect(setSearchMock).not.toHaveBeenCalled()
+    expect(mockContext.setSearch).not.toHaveBeenCalled()
   })
 
   it('should redirect to home page when the user submit the data', () => {
-    const setSearchMock = jest.fn()
-    const useStateMock = useState => [useState, setSearchMock]
-
-    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
-
     const {getByTestId} = render(
       <BrowserRouter>
         <SearchBox />

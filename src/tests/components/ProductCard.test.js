@@ -87,4 +87,15 @@ describe('Product card', () => {
     const productImage = getByTestId('product-card__image')
     expect(productImage.src).toContain('http://localhost/no-image.png')
   })
+
+  it('should redirect to /item/id when a user hit over the card', () => {
+    const {getByTestId} = render(
+      <BrowserRouter>
+        <ProductCard item={mockItem} />
+      </BrowserRouter>,
+    )
+    const productCard = getByTestId('product-card')
+    productCard.click()
+    expect(window.location.pathname).toBe(`/item/${mockItem.id}`)
+  })
 })
