@@ -10,7 +10,7 @@ exports[`Product Page renders correctly 1`] = `
   >
     <img
       alt=""
-      src=""
+      src="no-image.png"
     />
     <div
       class="product-page__product--buy"

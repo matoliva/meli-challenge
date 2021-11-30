@@ -4,6 +4,7 @@ exports[`Product card renders correctly 1`] = `
 <article
   class="product-card pointer"
   data-testid="product-card"
+  id="1"
 >
   <div
     class="product-card__image"
