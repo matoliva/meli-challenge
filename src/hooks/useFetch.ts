@@ -28,6 +28,9 @@ export const useFetch = (url: string): IFetch => {
     }
 
     fetchData()
+    return () => {
+      setApiData(null)
+    }
   }, [url])
 
   return {

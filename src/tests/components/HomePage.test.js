@@ -1,10 +1,9 @@
 import {render, waitFor} from '@testing-library/react'
 import {BrowserRouter} from 'react-router-dom'
+import {SearchContext} from '../../contexts/SearchContext'
 import {HomePage} from '../../pages/HomePage'
 
 describe('Home Page', () => {
-  beforeEach(() => {})
-
   it('renders correctly', () => {
     const {getByTestId} = render(
       <BrowserRouter>
@@ -15,30 +14,24 @@ describe('Home Page', () => {
     expect(homePage).toMatchSnapshot()
   })
 
-  it.skip('should called an async api when the component is rendering', async () => {
-    const fakeResponse = {
-      id: 1,
-      title: 'test title',
-      price: 1000,
-      currency_id: 'ARS',
-      address: {city_name: 'Mar del Plata'},
-      thumbnail: 'http://image',
-      condition: 'new',
+  it('should render productList with ProductCards', async () => {
+    const mockContext = {
+      search: 'iphone',
+      setSearch: jest.fn(),
     }
 
-    const mockFetch = Promise.resolve({
-      json: () => Promise.resolve(fakeResponse),
-    })
-    const mockedFetch = jest
-      .spyOn(window, 'fetch')
-      .mockImplementationOnce(() => mockFetch)
-    await waitFor(async () => {
-      render(
+    const {getByTestId, getAllByTestId} = render(
+      <SearchContext.Provider value={mockContext}>
         <BrowserRouter>
           <HomePage />
-        </BrowserRouter>,
-      )
-    })
-    expect(mockedFetch).toHaveBeenCalledTimes(1)
+        </BrowserRouter>
+      </SearchContext.Provider>,
+    )
+    const productList = await waitFor(() => getByTestId('product-list'))
+    const productCards = await waitFor(() => getAllByTestId('product-card'))
+
+    expect(productList).toBeDefined()
+    expect(productCards).toBeDefined()
+    expect(productCards).toHaveLength(4)
   })
 })

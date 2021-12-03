@@ -26,6 +26,10 @@ export const useFetchAll = (firstUrl: string, secondUrl: string): IFetch => {
     }
 
     fetchData()
+
+    return () => {
+      setApiData(null)
+    }
   }, [firstUrl, secondUrl])
 
   return {
